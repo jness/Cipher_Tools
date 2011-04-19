@@ -112,8 +112,6 @@ def main(stdscr):
             screen.addstr(2, 1, wordstring)
             screen.refresh()
 
-
-
         if x == ord('8'):
             ciphertext = ''
             for i in cipher:
@@ -121,9 +119,6 @@ def main(stdscr):
             f = open(cipher_file, 'w+')
             f.write(ciphertext)
             f.close
-
-
-
 
 if __name__=='__main__':
     try:

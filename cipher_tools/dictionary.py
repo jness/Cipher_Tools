@@ -31,6 +31,10 @@ def expression(argword, dictionary):
         new_input = new_input.replace('@@', '([a-z])\\1')
         search = simple_search(new_input, dictionary)
 
+    else:
+        user_input = argword
+        search = simple_search(user_input, dictionary)
+
     if search:
         # flip our dictionary
         dictionary = dict((v,k) for k, v in dictionary.items())
