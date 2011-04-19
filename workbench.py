@@ -19,7 +19,8 @@ def main(stdscr):
    
     x = 0
     while x != ord('9'):
-        if x != ord('4') and x != ord('>'):
+        # Dont clear on our Dictionary searches
+        if x != ord('4') and x != ord('>') and x != ord('<'):
             screen.erase()
         
         # BUILD MY MENU
@@ -116,6 +117,9 @@ def main(stdscr):
                     wordstring = wordstring + ' ' +  words[word]
                     wordcount += 1
 
+            # Reset word count for Travel portion
+            wordcount = 1
+
             # clear line
             screen.addstr(2, 1, ' '*200)
             screen.refresh()
@@ -128,6 +132,46 @@ def main(stdscr):
                 screen.addstr(2, 1, wordstring)
 
             screen.refresh()
+
+        # TRAVEL THE DICTIONARY
+        if x == ord('<'):
+            
+            # If newount isn't set we shouldn't run
+            try:
+                if newcount:
+                    pass
+            except UnboundLocalError:
+                continue
+           
+            # Shouldn't shrink the number before 1
+            if newcount - 10 < 1:
+                continue
+            else:
+                newcount = newcount - 10
+
+
+            count = 1
+
+            maxcount = newcount + 10
+            wordstring = ''
+
+            for word in words:
+                if wordcount < maxcount:
+                    if count >= newcount and count <= maxcount:
+                        wordstring = wordstring + ' ' +  words[word]
+                    count += 1
+
+            # clear line
+            screen.addstr(2, 1, ' '*200)
+            screen.refresh()
+
+            if newcount == 1:
+                screen.addstr(2, 1, wordstring + ' >')
+            else:
+                screen.addstr(2, 1, '<' + wordstring + ' >')
+
+            screen.refresh()
+
 
         # TRAVEL THE DICTIONARY
         if x == ord('>'):
@@ -160,9 +204,9 @@ def main(stdscr):
             # If we have more words in the list give the option
             # to travel the list
             if len(words) > maxcount:
-                screen.addstr(2, 1, wordstring + ' >')
+                screen.addstr(2, 1, '<' + wordstring + ' >')
             else:
-                screen.addstr(2, 1, wordstring)
+                screen.addstr(2, 1, '<' + wordstring)
 
             screen.refresh()
 
