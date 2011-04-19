@@ -9,6 +9,8 @@
 
 
 == Example of Workbench.py
+ $ ./workbench.py message
+
  1: Replace | 2: Undo | 3: Redo | 4: Dictionary | 8: Save | 9: Quit
  
  
@@ -24,3 +26,34 @@
    TMNtJWe MeWKB, STo KB WeUeMYeE to Ae tTe YMBt BJWUKUKVA TetWM, M WMTe TYoBeYD MttJVeE SKtT tTe
    NYMVet MVE NWeUKoJBYD tToJATt eHtKVTt. NWeBKEeVt BTKVWM AeYKeUeB MeWKB TMV YeME TKG to tTe
    NWoGKBeE YMVE, M GDtTKTMY YMVE oI IeWtKYKtD, STeWe Te eHNeTtB to IKVE GMZo eVeWAD.
+
+== Example of using the Dictionary
+ $ ./workbench.py message
+ 
+  1: Replace | 2: Undo | 3: Redo | 4: Dictionary | 8: Save | 9: Quit
+ 
+  Expression: fu@@y
+ 
+   IKVMY IMVtMBD UKK AeAKVB SKth TYoJE XoKVKVA MUMYMVThe KV M BeWKeB oI WMKEB MAMKVBt
+   the GMZo WeMTtoWB BJWWoJVEKVA the TKtD oI GKEAMW. MYthoJAh the IKWBt GKBBKoV KB BJTTeBBIJY,
+   MUMYMVThe KB tWMNNeE Mt MVotheW WeMTtoW EJWKVA M BJABeFJeVt WMKE. the WeMTtoW eHNYoEeB,
+   YMJVThKVA TYoJE IWoG the JNNeW YeUeYB oI GKEAMW KVto the BYJGB AeYoS. he YMVEB oV M IYoSeW AeE,
+   SheWe he KB IoWGMYYD KVtWoEJTeE to MeWKB. NWoGNteE AD the MWWKUMY oI BhKVWM'B tJWZB oNeWMtKUeB
+   BeVt to TMNtJWe MeWKB, TYoJE MAWeeB to Ae MeWKB' AoEDAJMWE MVE EeIeVEB heW IWoG the tJWZB.
+   MIteW the BhKVWM EKBToUeW the YoTMtKoV oI MUMYMVThe'B hKEeoJt, theD EeBtWoD Kt AD EeGoYKBhKVA
+   the eVtKWetD oI BeTtoW 7, ZKYYKVA KtB NoNJYMtKoV MVE thWee GeGAeWB oI MUMYMVThe. the tJWZB MYBo
+   TMNtJWe MeWKB, Sho KB WeUeMYeE to Ae the YMBt BJWUKUKVA TetWM, M WMTe TYoBeYD MttJVeE SKth the
+   NYMVet MVE NWeUKoJBYD thoJAht eHtKVTt. NWeBKEeVt BhKVWM AeYKeUeB MeWKB TMV YeME hKG to the
+   NWoGKBeE YMVE, M GDthKTMY YMVE oI IeWtKYKtD, SheWe he eHNeTtB to IKVE GMZo eVeWAD.
+
+== Results of above Dictionary search
+  1: Replace | 2: Undo | 3: Redo | 4: Dictionary | 8: Save | 9: Quit
+ 
+   fubby fuffy fuggy fully funny furry fussy fuzzy
+ 
+   IKVMY IMVtMBD UKK AeAKVB SKth TYoJE XoKVKVA MUMYMVThe KV M BeWKeB oI WMKEB MAMKVBt
+   the GMZo WeMTtoWB BJWWoJVEKVA the TKtD oI GKEAMW. MYthoJAh the IKWBt GKBBKoV KB BJTTeBBIJY,
+   MUMYMVThe KB tWMNNeE Mt MVotheW WeMTtoW EJWKVA M BJABeFJeVt WMKE. the WeMTtoW eHNYoEeB,
+   YMJVThKVA TYoJE IWoG the JNNeW YeUeYB oI GKEAMW KVto the BYJGB AeYoS. he YMVEB oV M IYoSeW AeE,
+   SheWe he KB IoWGMYYD KVtWoEJTeE to MeWKB. NWoGNteE AD the MWWKUMY oI BhKVWM'B tJWZB oNeWMtKUeB
+   BeVt to TMNtJWe MeWKB, TYoJE 
