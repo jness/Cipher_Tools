@@ -2,6 +2,7 @@
 import curses, traceback
 import sys
 import pickle
+import cipher_tools.dictionary
 
 def main(stdscr):
     global screen
@@ -12,13 +13,14 @@ def main(stdscr):
     cipher = f.readlines()
     f.close()
 
-    f = open('dictionary.db', 'rb')
+    f = open('cipher_tools/dictionary.db', 'rb')
     dictionary = pickle.load(f)
     f.close()
    
     x = 0
     while x != ord('9'):
-        screen.erase()
+        if x != ord('4'):
+            screen.erase()
         
         # Menu
         screen.addstr(0, 1, '1: Replace |')
@@ -29,7 +31,7 @@ def main(stdscr):
         screen.addstr(0, 60, '9: Quit')
 
         # Print Cipher blob
-        count = 3
+        count = 4
         for i in cipher:
             screen.addstr(count, 2, i)
             count += 1
@@ -71,6 +73,26 @@ def main(stdscr):
                 cipher = redo
             except UnboundLocalError:
                 continue
+        
+        if x == ord('4'):
+            curses.echo()
+            curses.nocbreak()
+            screen.addstr(2, 1, 'Expression: ')
+            user_input = screen.getstr()
+            curses.noecho()
+            curses.cbreak()
+            screen.refresh()
+
+            words = cipher_tools.dictionary.expression(user_input, dictionary)
+            wordstring = ''
+            for word in words:
+                wordstring = wordstring + ' ' +  word
+            # clear line
+            screen.addstr(2, 1, ' '*100)
+            screen.addstr(2, 1, wordstring)
+            screen.refresh()
+
+
 
         if x == ord('8'):
             ciphertext = ''
