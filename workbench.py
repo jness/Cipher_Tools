@@ -19,10 +19,10 @@ def main(stdscr):
    
     x = 0
     while x != ord('9'):
-        if x != ord('4'):
+        if x != ord('4') and x != ord('>'):
             screen.erase()
         
-        # Menu
+        # BUILD MY MENU
         screen.addstr(0, 1, '1: Replace |')
         screen.addstr(0, 14, '2: Undo |')
         screen.addstr(0, 24, '3: Redo |')
@@ -42,6 +42,7 @@ def main(stdscr):
         # Get Keyboard input
         x = screen.getch()
 
+        # REPLACE
         if x == ord('1'):
             # Ask question to replace
             curses.echo()
@@ -69,6 +70,7 @@ def main(stdscr):
 
             cipher = newcipher
 
+        # UNDO
         if x == ord('2'):
 
             # If my undo and current cipher match
@@ -82,12 +84,14 @@ def main(stdscr):
             except UnboundLocalError:
                 continue
 
+        # REDO
         if x == ord('3'):
             try:
                 cipher = redo
             except UnboundLocalError:
                 continue
-        
+
+        # DICTIONARY
         if x == ord('4'):
             curses.echo()
             curses.nocbreak()
@@ -103,15 +107,66 @@ def main(stdscr):
 
             words = cipher_tools.dictionary.expression(user_input, dictionary)
             wordstring = ''
+            
+            wordcount = 1
+            maxcount = wordcount + 10
+
             for word in words:
-                wordstring = wordstring + ' ' +  word
+                if wordcount < maxcount:
+                    wordstring = wordstring + ' ' +  words[word]
+                    wordcount += 1
+
             # clear line
             screen.addstr(2, 1, ' '*200)
             screen.refresh()
 
-            screen.addstr(2, 1, wordstring)
+            # If we have more words in the list give the option
+            # to travel the list
+            if len(words) > maxcount:
+                screen.addstr(2, 1, wordstring + ' >')
+            else:
+                screen.addstr(2, 1, wordstring)
+
             screen.refresh()
 
+        # TRAVEL THE DICTIONARY
+        if x == ord('>'):
+
+            # No need to run if our list is smaller than count
+            if len(words) < maxcount:
+                continue
+
+            count = 1
+
+            # If we increased befiore we need to bump the number
+            try:
+                newcount = newcount + 10
+            except UnboundLocalError:
+                newcount = wordcount + 10
+
+            maxcount = newcount + 10
+            wordstring = ''
+            
+            for word in words:
+                if wordcount < maxcount:
+                    if count >= newcount and count <= maxcount: 
+                        wordstring = wordstring + ' ' +  words[word]
+                    count += 1
+
+            # clear line
+            screen.addstr(2, 1, ' '*200)
+            screen.refresh()
+
+            # If we have more words in the list give the option
+            # to travel the list
+            if len(words) > maxcount:
+                screen.addstr(2, 1, wordstring + ' >')
+            else:
+                screen.addstr(2, 1, wordstring)
+
+            screen.refresh()
+
+        # SAVE
         if x == ord('8'):
             ciphertext = ''
             for i in cipher:

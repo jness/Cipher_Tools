@@ -46,9 +46,8 @@ def expression(argword, dictionary):
 
         # Only 10 results
         count = 1
-        words = []
+        words = {}
         for word in sorted(found):
-            if count <= 10:
-                count += 1
-                words.append(word)
+            words[count] = word
+            count += 1
         return words
