@@ -1,0 +1,26 @@
+== Ciper_Tools
+ Cipher tools is a work area for deciphering monoalphabetical substitution ciphers
+
+== Tools built in
+ * Replace all characters in a blob with a given character 
+ * A regular expresion dictionary with uses ? for unknowns and @@ for duplicate bigram unknowns
+ * Single step undo and redo
+ * Save feature to write all changes back to the file
+
+
+== Example of Workbench.py
+ 1: Replace | 2: Undo | 3: Redo | 4: Dictionary | 8: Save | 9: Quit
+ 
+ 
+ 
+   IKVMY IMVtMBD UKK AeAKVB SKtT TYoJE XoKVKVA MUMYMVTTe KV M BeWKeB oI WMKEB MAMKVBt
+   tTe GMZo WeMTtoWB BJWWoJVEKVA tTe TKtD oI GKEAMW. MYtToJAT tTe IKWBt GKBBKoV KB BJTTeBBIJY,
+   MUMYMVTTe KB tWMNNeE Mt MVotTeW WeMTtoW EJWKVA M BJABeFJeVt WMKE. tTe WeMTtoW eHNYoEeB,
+   YMJVTTKVA TYoJE IWoG tTe JNNeW YeUeYB oI GKEAMW KVto tTe BYJGB AeYoS. Te YMVEB oV M IYoSeW AeE,
+   STeWe Te KB IoWGMYYD KVtWoEJTeE to MeWKB. NWoGNteE AD tTe MWWKUMY oI BTKVWM'B tJWZB oNeWMtKUeB
+   BeVt to TMNtJWe MeWKB, TYoJE MAWeeB to Ae MeWKB' AoEDAJMWE MVE EeIeVEB TeW IWoG tTe tJWZB.
+   MIteW tTe BTKVWM EKBToUeW tTe YoTMtKoV oI MUMYMVTTe'B TKEeoJt, tTeD EeBtWoD Kt AD EeGoYKBTKVA
+   tTe eVtKWetD oI BeTtoW 7, ZKYYKVA KtB NoNJYMtKoV MVE tTWee GeGAeWB oI MUMYMVTTe. tTe tJWZB MYBo
+   TMNtJWe MeWKB, STo KB WeUeMYeE to Ae tTe YMBt BJWUKUKVA TetWM, M WMTe TYoBeYD MttJVeE SKtT tTe
+   NYMVet MVE NWeUKoJBYD tToJATt eHtKVTt. NWeBKEeVt BTKVWM AeYKeUeB MeWKB TMV YeME TKG to tTe
+   NWoGKBeE YMVE, M GDtTKTMY YMVE oI IeWtKYKtD, STeWe Te eHNeTtB to IKVE GMZo eVeWAD.
