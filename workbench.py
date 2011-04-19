@@ -11,17 +11,22 @@ def main(stdscr):
     f = open(cipher_file, 'r')
     cipher = f.readlines()
     f.close()
+
+    f = open('dictionary.db', 'rb')
+    dictionary = pickle.load(f)
+    f.close()
    
     x = 0
-    while x != ord('5'):
+    while x != ord('9'):
         screen.erase()
         
         # Menu
         screen.addstr(0, 1, '1: Replace |')
         screen.addstr(0, 14, '2: Undo |')
         screen.addstr(0, 24, '3: Redo |')
-        screen.addstr(0, 34, '4: Save |')
-        screen.addstr(0, 44, '5: Quit')
+        screen.addstr(0, 34, '4: Dictionary |')
+        screen.addstr(0, 50, '8: Save |')
+        screen.addstr(0, 60, '9: Quit')
 
         # Print Cipher blob
         count = 3
@@ -67,7 +72,7 @@ def main(stdscr):
             except UnboundLocalError:
                 continue
 
-        if x == ord('4'):
+        if x == ord('8'):
             ciphertext = ''
             for i in cipher:
                 ciphertext = ciphertext + i
@@ -79,28 +84,28 @@ def main(stdscr):
 
 
 if __name__=='__main__':
-  try:
-      # Initialize curses
-      stdscr=curses.initscr()
-      # Turn off echoing of keys, and enter cbreak mode,
-      # where no buffering is performed on keyboard input
-      curses.noecho()
-      curses.cbreak()
+    try:
+        # Initialize curses
+        stdscr=curses.initscr()
+        # Turn off echoing of keys, and enter cbreak mode,
+        # where no buffering is performed on keyboard input
+        curses.noecho()
+        curses.cbreak()
 
-      # In keypad mode, escape sequences for special keys
-      # (like the cursor keys) will be interpreted and
-      # a special value like curses.KEY_LEFT will be returned
-      stdscr.keypad(1)
-      main(stdscr)                    # Enter the main loop
-      # Set everything back to normal
-      stdscr.keypad(0)
-      curses.echo()
-      curses.nocbreak()
-      curses.endwin()                 # Terminate curses
-  except:
-      # In event of error, restore terminal to sane state.
-      stdscr.keypad(0)
-      curses.echo()
-      curses.nocbreak()
-      curses.endwin()
-      traceback.print_exc()           # Print the exception
+        # In keypad mode, escape sequences for special keys
+        # (like the cursor keys) will be interpreted and
+        # a special value like curses.KEY_LEFT will be returned
+        stdscr.keypad(1)
+        main(stdscr)                    # Enter the main loop
+        # Set everything back to normal
+        stdscr.keypad(0)
+        curses.echo()
+        curses.nocbreak()
+        curses.endwin()                 # Terminate curses
+    except:
+        # In event of error, restore terminal to sane state.
+        stdscr.keypad(0)
+        curses.echo()
+        curses.nocbreak()
+        curses.endwin()
+        traceback.print_exc()           # Print the exception
