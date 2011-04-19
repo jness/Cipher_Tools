@@ -58,10 +58,24 @@ def main(stdscr):
             for i in cipher:
                 i = i.replace(replace, replacewith)
                 newcipher.append(i)
-            undo = cipher
+
+            # Build our undo only if the previous undo
+            # doesn't match
+            try:
+                if cipher != undo:
+                    undo = cipher
+            except UnboundLocalError:
+                undo = cipher
+
             cipher = newcipher
 
         if x == ord('2'):
+
+            # If my undo and current cipher match
+            # we are last undo
+            if undo == cipher:
+                continue
+
             try:
                 redo = cipher
                 cipher = undo
@@ -77,6 +91,10 @@ def main(stdscr):
         if x == ord('4'):
             curses.echo()
             curses.nocbreak()
+            # clear line
+            screen.addstr(2, 1, ' '*200)
+            screen.refresh()
+
             screen.addstr(2, 1, 'Expression: ')
             user_input = screen.getstr()
             curses.noecho()
@@ -88,7 +106,9 @@ def main(stdscr):
             for word in words:
                 wordstring = wordstring + ' ' +  word
             # clear line
-            screen.addstr(2, 1, ' '*100)
+            screen.addstr(2, 1, ' '*200)
+            screen.refresh()
+
             screen.addstr(2, 1, wordstring)
             screen.refresh()
 

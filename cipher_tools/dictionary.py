@@ -44,7 +44,7 @@ def expression(argword, dictionary):
         count = 1
         words = []
         for word in sorted(found):
-            if count <= 20:
+            if count <= 10:
                 count += 1
                 words.append(word)
         return words
